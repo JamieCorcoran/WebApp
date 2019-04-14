@@ -22,7 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
-img{
-    height: 300px;
+#homeimg{
+    height: 200px;
     width: 100%;
+}
+#AWSDiagram {
+    height: 600px;
+    width: 800px;
 }
