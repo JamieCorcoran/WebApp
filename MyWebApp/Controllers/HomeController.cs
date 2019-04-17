@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Web;
 using System.Web.Mvc;
+using Amazon.Runtime;
 
 namespace MyWebApp.Controllers
 {
@@ -10,6 +13,14 @@ namespace MyWebApp.Controllers
     {
         public ActionResult Index()
         {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    ViewBag.Message = ip.ToString();
+                }
+            }
             return View();
         }
 
